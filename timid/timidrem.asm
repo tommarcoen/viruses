@@ -21,6 +21,14 @@
    .CODE
    .STARTUP
 
+; Find all files and fix them.
+   CALL  FIND_COM_FILE
+FIX_FILES:
+   CALL  FIX_FILE
+   CALL  FIND_NEXT_FILE
+   JNZ   FIX_FILES
+   
+
 
 ; The .EXIT directive accepts a 1-byte exit code as its optional
 ; argument. It generates the following code that returns control to
